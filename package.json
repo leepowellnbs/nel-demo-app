@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nel-ui/accordion-react": "^5.0.1",
     "@nel-ui/expander-react": "^5.0.1",
     "@nel-ui/link-react": "^5.0.1",
     "@nel-ui/list-react": "^5.0.1",

@@ -1,15 +1,31 @@
 import "./App.css";
-import { Link } from "@nel-ui/link-react";
-import { List, ListItem } from "@nel-ui/list-react";
-import { P, Overline } from "@nel-ui/typography-react";
-import { Expander } from "@nel-ui/expander-react";
-import { NELProvider } from "@nel-ui/react";
+import {
+  Link,
+  List,
+  ListItem,
+  P,
+  Overline,
+  H3,
+  Expander,
+  Accordion,
+  NELProvider,
+  createNELStyles,
+} from "@nel-ui/react";
 import { Stepper } from "./components/Stepper.tsx";
+import { utils } from "@nel-ui/foundations";
+
+const useStyles = createNELStyles({
+  foo: utils.spaceTracker(),
+  p: utils.verticalSpacer(5),
+});
 
 function App() {
+  const classes = useStyles();
+
   return (
     <NELProvider>
-      <Stepper className="my-stepper" />
+      <H3>Make a budget</H3>
+      <Stepper className="my-stepper" totalSteps={5} currentStep={3} />
       <Link href="http://google.com">Link</Link>
       <List variant="tick">
         <ListItem>Item 1</ListItem>
@@ -21,6 +37,18 @@ function App() {
       <Expander id="1" summary="THis is the summary">
         <P>This is the content</P>
       </Expander>
+      <Accordion
+        items={[
+          {
+            id: "1",
+            heading: "Heading",
+            children: "Content",
+          },
+        ]}
+      />
+      <div className={classes.foo}>
+        <P className={classes.p}>Hello!</P>
+      </div>
     </NELProvider>
   );
 }
